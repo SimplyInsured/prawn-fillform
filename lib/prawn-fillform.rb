@@ -296,9 +296,6 @@ module Prawn
         end
       end
 
-      references = References.new(@state)
-      references.delete!
-
     end
   end
 end
