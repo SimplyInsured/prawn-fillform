@@ -218,6 +218,7 @@ module Prawn
             next unless deref(dictionary[:Type]) == :Annot and deref(dictionary[:Subtype]) == :Widget
             next unless (deref(dictionary[:FT]) == :Tx || deref(dictionary[:FT]) == :Btn)
 
+            binding.pry
             type = deref(dictionary[:FT]).to_sym
             case type
             when :Tx
