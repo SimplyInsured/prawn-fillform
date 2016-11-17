@@ -218,13 +218,12 @@ module Prawn
             next unless deref(dictionary[:Type]) == :Annot and deref(dictionary[:Subtype]) == :Widget
             next unless (deref(dictionary[:FT]) == :Tx || deref(dictionary[:FT]) == :Btn)
 
-            binding.pry
             type = deref(dictionary[:FT]).to_sym
             case type
             when :Tx
               acroform[page_number] << Text.new(dictionary)
             when :Btn
-              if deref(dictionary[:AP]).has_key? :D
+              if dictionary[:AP] && deref(dictionary[:AP]).has_key? :D
                 acroform[page_number] << Checkbox.new(dictionary)
               else
                 acroform[page_number] << Button.new(dictionary)
