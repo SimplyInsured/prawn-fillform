@@ -223,7 +223,7 @@ module Prawn
             when :Tx
               acroform[page_number] << Text.new(dictionary)
             when :Btn
-              if dictionary[:AP] && deref(dictionary[:AP]).has_key? :D
+              if dictionary[:AP] && deref(dictionary[:AP]).has_key?(:D)
                 acroform[page_number] << Checkbox.new(dictionary)
               else
                 acroform[page_number] << Button.new(dictionary)
